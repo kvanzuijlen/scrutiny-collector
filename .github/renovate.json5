@@ -22,7 +22,6 @@
     }
   ],
   automerge: true,
-  automergeType: 'branch',
   packageRules: [
     {
       matchPackageNames: ["AnalogJ/scrutiny", "ghcr.io/analogj/scrutiny"],
