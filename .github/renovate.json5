@@ -1,0 +1,36 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: [
+    "config:best-practices"
+  ],
+  customManagers: [
+    {
+      customType: "regex",
+      fileMatch: ["Dockerfile"],
+      matchStrings: [
+        "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)( versioning=(?<versioning>.+?))?( extractVersion=(?<extractVersion>.+?))?\\sENV .+_VERSION=(?<currentValue>.+)"
+      ]
+    },
+    {
+      customType: 'regex',
+      fileMatch: [
+        '(^|/)\\.github/workflows/.+\\.yaml$'
+      ],
+      matchStrings: [
+        '# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)\\s[\\s\\w:|]+ghcr\\.io\\/kvanzuijlen\\/scrutiny:v(?<currentValue>.+)-collector'
+      ]
+    }
+  ],
+  automerge: true,
+  automergeType: 'branch',
+  packageRules: [
+    {
+      matchPackageNames: ["AnalogJ/scrutiny", "ghcr.io/analogj/scrutiny"],
+      groupName: "AnalogJ/scrutiny"
+    },
+    {
+      matchPackageNames: ["smartmontools/smartmontools"],
+      groupName: "smartmontools/smartmontools",
+    }
+  ]
+}
