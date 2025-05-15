@@ -3,7 +3,7 @@ FROM debian:12.10@sha256:18023f131f52fc3ea21973cabffe0b216c60b417fd2478e94d9d599
 RUN apt-get update && apt-get install -y build-essential && apt-get clean
 
 # renovate: datasource=github-tags depName=smartmontools/smartmontools versioning=loose extractVersion=^RELEASE_(?<version>.*)$
-ENV SMARTMONTOOLS_VERSION=7_4
+ENV SMARTMONTOOLS_VERSION=7_5
 
 ADD https://github.com/smartmontools/smartmontools/releases/download/RELEASE_${SMARTMONTOOLS_VERSION}/smartmontools-${SMARTMONTOOLS_VERSION//_/.}.tar.gz smartmontools.tar.gz
 
@@ -16,7 +16,7 @@ FROM ghcr.io/analogj/scrutiny:v0.8.1-collector@sha256:5f6536d68be2d7424627647cdd
 LABEL authors="kvanzuijlen"
 
 # renovate: datasource=github-tags depName=smartmontools/smartmontools versioning=loose extractVersion=^RELEASE_(?<version>.*)$
-ENV SMARTMONTOOLS_VERSION=7_4
+ENV SMARTMONTOOLS_VERSION=7_5
 COPY --from=builder /smartmontools-install/etc/ /etc/
 COPY --from=builder /smartmontools-install/sbin/ /sbin/
 COPY --from=builder /smartmontools-install/share/ /share/
