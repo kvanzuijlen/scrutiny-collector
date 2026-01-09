@@ -9,7 +9,7 @@ ADD https://github.com/smartmontools/smartmontools/releases/download/RELEASE_${S
 
 RUN tar zxvf smartmontools.tar.gz
 WORKDIR /smartmontools-${SMARTMONTOOLS_VERSION//_/.}
-RUN ./configure --prefix=/smartmontools-install && make && make install
+RUN ./configure --prefix=/smartmontools-install LDFLAGS="-static" && make && make install
 
 FROM ghcr.io/analogj/scrutiny:v0.8.1-collector@sha256:5f6536d68be2d7424627647cdd658e6b4c1f69751a21622fb97b999a3155ba86
 
