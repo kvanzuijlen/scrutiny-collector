@@ -36,7 +36,7 @@ jobs:
           push: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
           # renovate: datasource=github-tags depName=AnalogJ/scrutiny
           tags: |
-            ghcr.io/kvanzuijlen/scrutiny:v0.8.1-collector
+            ghcr.io/kvanzuijlen/scrutiny:v0.8.2-collector
             ghcr.io/kvanzuijlen/scrutiny:latest-collector
           cache-from: type=gha
           cache-to: type=gha,mode=max
