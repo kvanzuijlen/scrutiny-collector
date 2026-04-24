@@ -11,7 +11,7 @@ RUN tar zxvf smartmontools.tar.gz
 WORKDIR /smartmontools-${SMARTMONTOOLS_VERSION//_/.}
 RUN ./configure --prefix=/smartmontools-install LDFLAGS="-static" && make && make install
 
-FROM ghcr.io/analogj/scrutiny:v0.9.0-collector@sha256:3ff9e9ba8c0c4dbb83a3537222de8eb1be4115b38a14ec4f57004684973308df
+FROM ghcr.io/analogj/scrutiny:v0.9.1-collector@sha256:6c238e9996e8b19dc64916d32d2a0be1dc0619907fc107d7d437f8a5be8449ac
 
 LABEL authors="kvanzuijlen"
 
