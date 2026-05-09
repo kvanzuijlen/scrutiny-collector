@@ -1,4 +1,4 @@
-FROM debian:13.4@sha256:923316b02246788f8daafee5e0d237582187212527b0b8344abd7f5a7de8bec6 AS builder
+FROM debian:13.4@sha256:e2d08da6f42ef4b09b165d55528a12727aeed8240dc9edf888e3ec07e10ef9da AS builder
 
 RUN apt-get update && apt-get install -y build-essential && apt-get clean
 
